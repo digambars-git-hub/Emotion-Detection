@@ -29,5 +29,5 @@ Root: Emotion recognition
 Note:
 - This file is meant as a sharable summary of where key files and folders live.
 - Image counts in the Data subfolders are approximate and grouped by extension.
-
+- The Data folder is removed from the project, instead, it's source is provided in the README.md.
 

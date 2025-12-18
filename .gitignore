@@ -1,0 +1,4 @@
+*.jpg
+*.dockerignore
+*.png
+*.env
