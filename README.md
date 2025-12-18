@@ -26,7 +26,7 @@ We start from an **ImageNet‑pretrained MobileNetV2**, fine‑tune it on a cust
   - `webcam.py` – OpenCV-based real‑time emotion recognition from your local webcam.
   - `working.ipynb` – Jupyter notebook used to **fine‑tune MobileNetV2** on the emotion dataset and export `emotion_recognition_model.pth`.
   - `emotion_recognition_model.pth` – Fine‑tuned PyTorch checkpoint (model weights + class labels).
-  - `Data/` – Dataset folders (`Angry`, `Fear`, `Happy`, `Sad`, `Suprise`) used for training (optional, if you want to re‑train).
+  - `Data/` – Dataset folders (`Angry`, `Fear`, `Happy`, `Sad`, `Suprise`) used for training (optional, if you want to re‑train). Data was taken from "https://www.kaggle.com/datasets/samithsachidanandan/human-face-emotions"
 - **`DockerFile`** – Optional image definition mainly for deployment (e.g. Hugging Face Spaces); not needed for local experiments.
 - **`requirements.txt`** – Python dependencies.
 
