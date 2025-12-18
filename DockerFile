@@ -1,0 +1,20 @@
+# 1. Base image: lightweight Linux + Python
+FROM python:3.10-slim
+
+# 2. Set working directory inside container
+WORKDIR /app
+
+# 3. Copy dependency list first (Docker caching trick)
+COPY requirements.txt .
+
+# 4. Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 5. Copy only necessary app files
+COPY model/ model/
+
+# 6. Expose the port FastAPI will run on
+EXPOSE 7860
+
+# 7. Start the FastAPI app
+CMD ["uvicorn", "model.api:app", "--host", "0.0.0.0", "--port", "7860"]

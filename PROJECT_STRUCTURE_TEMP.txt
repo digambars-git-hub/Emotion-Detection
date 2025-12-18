@@ -1,0 +1,33 @@
+Project Structure Overview (Temporary File)
+
+Root: Emotion recognition
+│
+├─ frontend/
+│  ├─ index.html
+│  ├─ script.js
+│  └─ style.css
+│
+├─ model/
+│  ├─ api.py
+│  ├─ inference.py
+│  ├─ model.py
+│  ├─ webcam.py
+│  ├─ working.ipynb
+│  ├─ emotion_recognition_model.pth
+│  ├─ Image.jpg
+│  │
+│  └─ Data/
+│     ├─ Angry/      (≈ 10,148 image files: 9,906 *.png, 242 *.jpg)
+│     ├─ Fear/       (≈ 9,732 image files: 9,714 *.png, 18 *.jpg)
+│     ├─ Happy/      (≈ 18,439 image files: 17,983 *.png, 364 *.jpg, 92 *.jpeg)
+│     ├─ Sad/        (≈ 12,553 image files: 12,157 *.png, 395 *.jpg, 1 *.jpeg)
+│     └─ Suprise/    (≈ 8,227 image files: 8,004 *.png, 223 *.jpg)
+│
+├─ README.md
+└─ requirements.txt
+
+Note:
+- This file is meant as a sharable summary of where key files and folders live.
+- Image counts in the Data subfolders are approximate and grouped by extension.
+
+
