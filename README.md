@@ -110,10 +110,6 @@ pip install -r requirements.txt fastapi uvicorn
 
 5. You should see the **live video** and the **predicted emotion** updating underneath! 🎉
 
-<div align="center">
-  <img src="https://via.placeholder.com/600x300/2ECC71/FFFFFF?text=Web+Interface+Demo" alt="Web Interface" width="600"/>
-</div>
-
 ---
 
 ### 💻 Local Webcam Script (No Browser)
@@ -136,10 +132,6 @@ If you prefer a pure Python / OpenCV pipeline:
    - 👤 Detected faces will be highlighted with a bounding box.
    - 🏷️ The predicted emotion label will be shown next to each face.
    - Press **`q`** to quit.
-
-<div align="center">
-  <img src="https://via.placeholder.com/600x300/E74C3C/FFFFFF?text=OpenCV+Webcam+Demo" alt="OpenCV Demo" width="600"/>
-</div>
 
 ---
 
