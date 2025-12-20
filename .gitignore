@@ -1,4 +1,21 @@
+# ===== Python cache =====
+__pycache__/
+*.pyc
+
+# ===== Virtual environments =====
+venv/
+.env/
+
+# ===== Local test files =====
+Image.jpg
 *.jpg
-*.dockerignore
 *.png
-*.env
+*.jpeg
+
+# ===== Datasets (NEVER push) =====
+Data/
+model/Data/
+
+# ===== OS junk =====
+.DS_Store
+Thumbs.db
