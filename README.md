@@ -1,54 +1,76 @@
-## Emotion Recognition – Real‑Time Facial Emotion Detection
+# 😊 Emotion Recognition – Real‑Time Facial Emotion Detection
+
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-Latest-orange.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-Latest-green.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+<div align="center">
+  <img src="https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=Emotion+Recognition+Demo" alt="Emotion Recognition Demo" width="800"/>
+  
+  *Real-time facial emotion detection using deep learning*
+</div>
+
+---
 
 This project is a **real‑time facial emotion recognition system** built around a **fine‑tuned MobileNetV2 model**.  
-We start from an **ImageNet‑pretrained MobileNetV2**, fine‑tune it on a custom facial emotion dataset, save the weights as `emotion_recognition_model.pth`, and then use that model behind a **FastAPI backend** and **browser-based webcam UI** to detect emotions such as *Angry, Fear, Happy, Sad,* and *Surprise* from a live camera feed.
-
-### Features
-
-- **Fine‑tuned deep learning model** – MobileNetV2 is fine‑tuned on a labeled facial emotion dataset to specialize it for emotion recognition.
-- **Real‑time detection** from your webcam (browser or local OpenCV).
-- **FastAPI REST API** endpoint for image-based emotion prediction.
-- **Simple HTML/JS frontend** that streams frames to the backend and displays the predicted emotion.
-- **Standalone webcam script** (`webcam.py`) if you prefer running everything locally without the browser.
+We start from an **ImageNet‑pretrained MobileNetV2**, fine‑tune it on a custom facial emotion dataset, save the weights as `emotion_recognition_model.pth`, and then use that model behind a **FastAPI backend** and **browser-based webcam UI** to detect emotions such as 😠 *Angry*, 😨 *Fear*, 😊 *Happy*, 😢 *Sad,* and 😲 *Surprise* from a live camera feed.
 
 ---
 
-### Project Structure
+## ✨ Features
 
-- **`frontend/`**
-  - `index.html` – Minimal UI with a video element and live emotion text.
-  - `script.js` – Grabs webcam frames, sends them to the backend (`/api/predict`), and updates the UI.
-  - `style.css` – Basic styling for the page and video element.
-- **`model/`**
-  - `api.py` – FastAPI app exposing `POST /api/predict` and serving the frontend.
-  - `inference.py` – Loads the fine‑tuned model and defines the `predict(image)` function.
-  - `model.py` – Constructs the MobileNetV2 architecture and adapts the final layer to the emotion classes.
-  - `webcam.py` – OpenCV-based real‑time emotion recognition from your local webcam.
-  - `working.ipynb` – Jupyter notebook used to **fine‑tune MobileNetV2** on the emotion dataset and export `emotion_recognition_model.pth`.
-  - `emotion_recognition_model.pth` – Fine‑tuned PyTorch checkpoint (model weights + class labels).
-  - `Data/` – Dataset folders (`Angry`, `Fear`, `Happy`, `Sad`, `Suprise`) used for training (optional, if you want to re‑train). Data was taken from "https://www.kaggle.com/datasets/samithsachidanandan/human-face-emotions"
-- **`DockerFile`** – Optional image definition mainly for deployment (e.g. Hugging Face Spaces); not needed for local experiments.
-- **`requirements.txt`** – Python dependencies.
+- 🤖 **Fine‑tuned deep learning model** – MobileNetV2 is fine‑tuned on a labeled facial emotion dataset to specialize it for emotion recognition.
+- 📹 **Real‑time detection** from your webcam (browser or local OpenCV).
+- 🚀 **FastAPI REST API** endpoint for image-based emotion prediction.
+- 🎨 **Simple HTML/JS frontend** that streams frames to the backend and displays the predicted emotion.
+- 💻 **Standalone webcam script** (`webcam.py`) if you prefer running everything locally without the browser.
 
 ---
 
-### Requirements
+## 📁 Project Structure
 
-- **Python** 3.8+ (recommended)
-- **pip** for installing dependencies
-- A **webcam**
-- (Optional) **GPU with CUDA** for faster inference, otherwise CPU will be used.
+```
+📦 Emotion Recognition Project
+├── 📂 frontend/
+│   ├── 📄 index.html          # Minimal UI with a video element and live emotion text
+│   ├── 📄 script.js            # Grabs webcam frames, sends them to the backend
+│   └── 📄 style.css            # Basic styling for the page and video element
+├── 📂 model/
+│   ├── 🐍 api.py               # FastAPI app exposing POST /api/predict
+│   ├── 🐍 inference.py         # Loads model and defines predict(image) function
+│   ├── 🐍 model.py             # MobileNetV2 architecture definition
+│   ├── 🐍 webcam.py            # OpenCV-based real‑time emotion recognition
+│   ├── 📓 working.ipynb        # Jupyter notebook for fine‑tuning MobileNetV2
+│   ├── 💾 emotion_recognition_model.pth  # Fine‑tuned PyTorch checkpoint
+│   └── 📂 Data/                # Dataset folders (Angry, Fear, Happy, Sad, Surprise)
+├── 🐳 DockerFile               # Docker image definition for deployment
+└── 📋 requirements.txt         # Python dependencies
+```
 
+---
+
+## 🛠️ Requirements
+
+### System Requirements
+- 🐍 **Python** 3.8+ (recommended)
+- 📦 **pip** for installing dependencies
+- 📷 A **webcam**
+- ⚡ (Optional) **GPU with CUDA** for faster inference, otherwise CPU will be used.
+
+### Python Packages
 Python packages (also listed in `requirements.txt`):
 
-- `torch`, `torchvision`
-- `numpy`
-- `opencv-python`
-- `matplotlib`
-- `pillow`
-- `tqdm`
-- `requests`
-- `fastapi`, `uvicorn` (install explicitly if missing)
+- `torch`, `torchvision` 🔥
+- `numpy` 🔢
+- `opencv-python` 📹
+- `matplotlib` 📊
+- `pillow` 🖼️
+- `tqdm` 📈
+- `requests` 🌐
+- `fastapi`, `uvicorn` ⚡ (install explicitly if missing)
+
+### Installation
 
 You can install everything with:
 
@@ -58,7 +80,9 @@ pip install -r requirements.txt fastapi uvicorn
 
 ---
 
-### How to Run – Web API + Frontend
+## 🚀 How to Run
+
+### 🌐 Web API + Frontend
 
 1. **Navigate to the model folder**:
 
@@ -82,13 +106,17 @@ pip install -r requirements.txt fastapi uvicorn
 
    - If needed, ensure the working directory is such that `../frontend` (from `model/api.py`) points to the `frontend` folder in this repo.
 
-4. **Allow camera access** in the browser when prompted.
+4. **Allow camera access** 📷 in the browser when prompted.
 
-5. You should see the **live video** and the **predicted emotion** updating underneath.
+5. You should see the **live video** and the **predicted emotion** updating underneath! 🎉
+
+<div align="center">
+  <img src="https://via.placeholder.com/600x300/2ECC71/FFFFFF?text=Web+Interface+Demo" alt="Web Interface" width="600"/>
+</div>
 
 ---
 
-### How to Run – Local Webcam Script (No Browser)
+### 💻 Local Webcam Script (No Browser)
 
 If you prefer a pure Python / OpenCV pipeline:
 
@@ -104,14 +132,18 @@ If you prefer a pure Python / OpenCV pipeline:
    python webcam.py
    ```
 
-3. A window called **“Emotion Recognition”** will appear:
-   - Detected faces will be highlighted with a bounding box.
-   - The predicted emotion label will be shown next to each face.
+3. A window called **"Emotion Recognition"** will appear:
+   - 👤 Detected faces will be highlighted with a bounding box.
+   - 🏷️ The predicted emotion label will be shown next to each face.
    - Press **`q`** to quit.
+
+<div align="center">
+  <img src="https://via.placeholder.com/600x300/E74C3C/FFFFFF?text=OpenCV+Webcam+Demo" alt="OpenCV Demo" width="600"/>
+</div>
 
 ---
 
-### Run with Docker (Optional)
+### 🐳 Run with Docker (Optional)
 
 If you prefer not to manage Python and system dependencies manually, you can use the provided `DockerFile`:
 
@@ -133,20 +165,22 @@ If you prefer not to manage Python and system dependencies manually, you can use
    http://localhost:8000/
    ```
 
-   and allow camera access. The behavior is the same as in the “Web API + Frontend” section above.
+   and allow camera access. The behavior is the same as in the "Web API + Frontend" section above.
 
 ---
 
-### Model & Inference Details
+## 🧠 Model & Inference Details
 
-- The model is a **MobileNetV2** classifier whose final layer is adapted to the number of emotion classes (e.g. Angry, Fear, Happy, Sad, Surprise).
+- The model is a **MobileNetV2** classifier whose final layer is adapted to the number of emotion classes (e.g. 😠 Angry, 😨 Fear, 😊 Happy, 😢 Sad, 😲 Surprise).
 - The **fine‑tuned weights and class names** are stored in `emotion_recognition_model.pth`, which is produced by the training notebook (`working.ipynb`).
 - Images are preprocessed with:
-  - Resize to \(224 \times 224\)
-  - Conversion to tensor
-  - Normalization with ImageNet mean and std
+  - 📐 Resize to \(224 \times 224\)
+  - 🔄 Conversion to tensor
+  - 📊 Normalization with ImageNet mean and std
 - Inference is done by `inference.py` via:
   - `predict(pil_image)` → returns a string label, e.g. `"Happy"`.
+
+### Testing the Model
 
 You can test the model directly with a static image (from the `model` directory):
 
@@ -158,7 +192,9 @@ This will load `Image.jpg` and print the predicted emotion.
 
 ---
 
-### API Reference
+## 📡 API Reference
+
+### Endpoints
 
 - **`GET /`**
   - Returns a simple JSON status: `{"status": "API running"}`.
@@ -175,10 +211,10 @@ The frontend uses this endpoint to send frames from your webcam (as blobs) appro
 
 ---
 
-### Dataset & Training (Fine‑Tuning Overview)
+## 📚 Dataset & Training (Fine‑Tuning Overview)
 
 - The (optional) `Data` directory is expected to contain labeled images organized by emotion:
-  - `Angry/`, `Fear/`, `Happy/`, `Sad/`, `Suprise/`.
+  - 😠 `Angry/`, 😨 `Fear/`, 😊 `Happy/`, 😢 `Sad/`, 😲 `Suprise/`.
 - The **fine‑tuning process is captured in `working.ipynb`**:
   - Load an **ImageNet‑pretrained MobileNetV2** from `torchvision`.
   - Replace the final classification layer so that its output dimension matches the number of emotion classes.
@@ -189,24 +225,33 @@ The frontend uses this endpoint to send frames from your webcam (as blobs) appro
   - Updating the `Data` folders and class list.
   - Re‑running or modifying `working.ipynb` and, if needed, adjusting `model.py` for a different backbone or number of classes.
 
+**Dataset Source**: [Kaggle - Human Face Emotions](https://www.kaggle.com/datasets/samithsachidanandan/human-face-emotions)
+
 ---
 
-### Troubleshooting
+## 🔧 Troubleshooting
 
-- **Camera access denied (browser)**  
-  - Check browser permissions and ensure you’re using `http://localhost` (not `file://`).
+- **📷 Camera access denied (browser)**  
+  - Check browser permissions and ensure you're using `http://localhost` (not `file://`).
 
-- **“Backend not reachable” in the frontend**  
+- **🔌 "Backend not reachable" in the frontend**  
   - Confirm the FastAPI server is running on the same host/port that `script.js` expects (`/api/predict` → default `http://localhost:8000/api/predict`).
   - Check for CORS issues or port conflicts.
 
-- **Model file not found**  
+- **📦 Model file not found**  
   - Ensure `emotion_recognition_model.pth` is present in the `model` directory when running any Python scripts there.
 
 ---
 
-### License & Credits
+## 📄 License & Credits
 
 - The project uses **PyTorch**, **FastAPI**, **OpenCV**, and **PIL** under their respective licenses.
 - Dataset images in `Data/` should respect their original source licenses (not provided here).
 - Feel free to modify or extend this project for research, learning, or personal use.
+
+---
+
+<div align="center">
+  <p>Made with ❤️ using PyTorch, FastAPI, and OpenCV</p>
+  <p>⭐ Star this repo if you find it helpful!</p>
+</div>
